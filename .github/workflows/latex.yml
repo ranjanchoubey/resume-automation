@@ -1,0 +1,43 @@
+name: Generate Resume
+
+on:
+  workflow_dispatch:
+    inputs:
+      role:
+        description: "Select a Job Role"
+        required: true
+        default: "Machine Learning Engineer"
+        type: choice
+        options:
+          - Machine Learning Engineer
+          - Data Scientist
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set up Python
+        uses: actions/setup-python@v3
+        with:
+          python-version: '3.9'
+
+      - name: Install dependencies
+        run: pip install pyyaml
+
+      - name: Generate Resume for ${{ inputs.role }}
+        run: python generate_resume.py "${{ inputs.role }}"
+
+      - name: Compile LaTeX Resume
+        uses: xu-cheng/latex-action@v2
+        with:
+          root_file: resume.tex
+
+      - name: Upload Compiled PDF
+        uses: actions/upload-artifact@v3
+        with:
+          name: "resume_${{ inputs.role }}"
+          path: resume.pdf
