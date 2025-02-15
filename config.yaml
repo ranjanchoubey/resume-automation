@@ -1,0 +1,18 @@
+roles:
+  Machine Learning Engineer:
+    job_title: "Machine Learning Engineer"
+    skill_one: "Machine Learning"
+    skill_two: "Deep Learning"
+    skill_three: "Model Optimization"
+    skill_four: "Data Analysis"
+    project_one_title: "Bad Debt Classification"
+    project_one_desc: "Developed predictive models using geographical data."
+
+  Data Scientist:
+    job_title: "Data Scientist"
+    skill_one: "Data Wrangling"
+    skill_two: "Statistics"
+    skill_three: "Predictive Modeling"
+    skill_four: "Feature Engineering"
+    project_one_title: "Customer Segmentation"
+    project_one_desc: "Segmented customers for targeted marketing strategies."
