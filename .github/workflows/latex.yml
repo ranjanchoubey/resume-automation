@@ -18,10 +18,10 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4  # Updated to latest version
 
       - name: Set up Python
-        uses: actions/setup-python@v3
+        uses: actions/setup-python@v4  # Updated to latest version
         with:
           python-version: '3.9'
 
@@ -37,7 +37,7 @@ jobs:
           root_file: resume.tex
 
       - name: Upload Compiled PDF
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4  # Fixed deprecated v3 issue
         with:
           name: "resume_${{ inputs.role }}"
           path: resume.pdf
